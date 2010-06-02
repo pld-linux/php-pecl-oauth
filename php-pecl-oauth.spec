@@ -4,7 +4,7 @@ Summary:	%{_modname} - consumer extension
 Summary(pl.UTF-8):	%{_modname} - rozszerzenie klienckie
 Name:		php-pecl-%{_modname}
 Version:	0.99.9
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{_modname}-%{version}.tgz
