@@ -34,6 +34,7 @@ To rozszerzenie ma w PECL status: %{status}.
 %prep
 %setup -qc
 mv %{modname}-%{version}/* .
+find -newer LICENSE -o -print | xargs touch --reference %{SOURCE0}
 
 %build
 phpize
