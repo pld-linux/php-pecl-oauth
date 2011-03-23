@@ -4,7 +4,7 @@ Summary:	%{modname} - consumer extension
 Summary(pl.UTF-8):	%{modname} - rozszerzenie klienckie
 Name:		php-pecl-%{modname}
 Version:	1.1.0
-Release:	1
+Release:	2
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
@@ -42,7 +42,7 @@ phpize
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d
+install -d $RPM_BUILD_ROOT{%{php_sysconfdir}/conf.d,%{_examplesdir}/%{name}-%{version}}
 
 %{__make} install \
 	INSTALL_ROOT=$RPM_BUILD_ROOT \
@@ -51,6 +51,8 @@ cat <<'EOF' > $RPM_BUILD_ROOT%{php_sysconfdir}/conf.d/%{modname}.ini
 ; Enable %{modname} extension module
 extension=%{modname}.so
 EOF
+
+cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -65,5 +67,7 @@ fi
 
 %files
 %defattr(644,root,root,755)
+%doc LICENSE
 %config(noreplace) %verify(not md5 mtime size) %{php_sysconfdir}/conf.d/%{modname}.ini
 %attr(755,root,root) %{php_extensiondir}/%{modname}.so
+%{_examplesdir}/%{name}-%{version}
