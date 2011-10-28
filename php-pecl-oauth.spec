@@ -3,12 +3,12 @@
 Summary:	%{modname} - consumer extension
 Summary(pl.UTF-8):	%{modname} - rozszerzenie klienckie
 Name:		php-pecl-%{modname}
-Version:	1.2
+Version:	1.2.2
 Release:	1
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
-# Source0-md5:	184538d752b19e7d82bc167df360f734
+# Source0-md5:	9a9f35e45786534d8580abfffc8c273c
 URL:		http://pecl.php.net/package/oauth/
 BuildRequires:	php-devel >= 3:5.0.0
 BuildRequires:	rpmbuild(macros) >= 1.344
