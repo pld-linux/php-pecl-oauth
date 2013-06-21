@@ -1,8 +1,9 @@
+%define		php_name	php%{?php_suffix}
 %define		modname	oauth
 %define		status	stable
 Summary:	%{modname} - consumer extension
 Summary(pl.UTF-8):	%{modname} - rozszerzenie klienckie
-Name:		php-pecl-%{modname}
+Name:		%{php_name}-pecl-%{modname}
 Version:	1.2.2
 Release:	5
 License:	BSD
@@ -10,11 +11,11 @@ Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
 # Source0-md5:	9a9f35e45786534d8580abfffc8c273c
 URL:		http://pecl.php.net/package/oauth/
-BuildRequires:	php-devel >= 3:5.0.0
-BuildRequires:	rpmbuild(macros) >= 1.344
+BuildRequires:	%{php_name}-devel >= 3:5.0.0
+BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
+Requires:	%{php_name}-hash
 Requires:	php(core) >= 5.0.4
-Requires:	php-hash
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
