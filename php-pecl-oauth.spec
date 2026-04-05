@@ -4,14 +4,14 @@
 Summary:	%{modname} - consumer extension
 Summary(pl.UTF-8):	%{modname} - rozszerzenie klienckie
 Name:		%{php_name}-pecl-%{modname}
-Version:	1.2.3
-Release:	5
+Version:	2.0.10
+Release:	1
 License:	BSD
 Group:		Development/Languages/PHP
 Source0:	http://pecl.php.net/get/%{modname}-%{version}.tgz
-# Source0-md5:	99838d9a04b78058c7360dfd69c8593b
+# Source0-md5:	47eeb6adc46a72844f48ce7d2ad3f0da
 URL:		http://pecl.php.net/package/oauth/
-BuildRequires:	%{php_name}-devel >= 3:5.0.4
+BuildRequires:	%{php_name}-devel >= 4:7.1.0
 BuildRequires:	rpmbuild(macros) >= 1.650
 %{?requires_php_extension}
 Requires:	%{php_name}-hash
@@ -56,6 +56,7 @@ extension=%{modname}.so
 EOF
 
 cp -a examples/* $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}
+%{__sed} -i -e '1s,#!/usr/bin/env php,#!/usr/bin/php,' $RPM_BUILD_ROOT%{_examplesdir}/%{name}-%{version}/google/getContactInfo.php
 
 %clean
 rm -rf $RPM_BUILD_ROOT
